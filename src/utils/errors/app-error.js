@@ -8,7 +8,7 @@ class AppError extends Error {
         super();
         this.name = name;
         this.message = message;
-        this.explanation = explation;
+        this.explanation = explanation;
         this.statusCode = statusCode;
     }
 }
