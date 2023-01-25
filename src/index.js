@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const { PORT } = require('./config/serverConfig');
+const { PORT, DB_SYNC } = require('./config/serverConfig');
 const app = express();
 const apiRoutes = require('./routes/index');
 const db = require('./models/index');
@@ -12,7 +12,7 @@ const setupAndStartServer = async () => {
 
     app.listen(PORT, () => {
         console.log("Server is running on port ", PORT);
-        if (process.env.DB_SYNC) {
+        if (DB_SYNC) {
             db.sequelize.sync({ alter: true });
         }
     })
